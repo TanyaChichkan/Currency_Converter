@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Currency_Converter/static/css/main.c57fb204.css",
+    "main.js": "/Currency_Converter/static/js/main.ca938e20.js",
+    "static/media/eu-flag.png": "/Currency_Converter/static/media/eu-flag.4a6dea62933d327c7b00.png",
+    "index.html": "/Currency_Converter/index.html",
+    "main.c57fb204.css.map": "/Currency_Converter/static/css/main.c57fb204.css.map",
+    "main.ca938e20.js.map": "/Currency_Converter/static/js/main.ca938e20.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c57fb204.css",
+    "static/js/main.ca938e20.js"
+  ]
+}
