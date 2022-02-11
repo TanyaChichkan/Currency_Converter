@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c57fb204.css",
+    "main.js": "/static/js/main.7b722afa.js",
+    "static/media/eu-flag.png": "/static/media/eu-flag.4a6dea62933d327c7b00.png",
+    "index.html": "/index.html",
+    "main.c57fb204.css.map": "/static/css/main.c57fb204.css.map",
+    "main.7b722afa.js.map": "/static/js/main.7b722afa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c57fb204.css",
+    "static/js/main.7b722afa.js"
+  ]
+}
