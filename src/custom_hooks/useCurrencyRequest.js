@@ -1,4 +1,5 @@
 import { useEffect, useState, useReducer } from 'react';
+import { constantsText, constantsNumbers } from '../constants/constants';
 import { fetchCurrencyRates } from '../services/currencyAPI';
 
 const initialState = {
@@ -9,11 +10,11 @@ const initialState = {
 
 const loadingReducer = (state, action) => {
   switch (action.type) {
-    case 'LOADING':
+    case constantsText.loading:
       return { ...state, isLoading: true };
-    case 'SUCCESS':
+    case constantsText.success:
       return { ...state, isLoading: false, success: true };
-    case 'ERROR':
+    case constantsText.error:
       return { ...state, isLoading: false, error: true, success: false };
     default:
       return state;
@@ -29,14 +30,19 @@ export const useCurrencyRequest = () => {
   }, []);
 
   const getCurrencyRates = async () => {
-    dispatch({ type: 'LOADING' });
+    dispatch({ type: constantsText.loading });
     try {
       const data = await fetchCurrencyRates();
       setCurrencyRatesAll(data.data);
-      setTimeout(() => dispatch({ type: 'SUCCESS' }), 1000);
+
+      //added  Loader component, so here this setTimeout  is for Loader component showing when the page is loaded for the 1st time, as the data is fetched from BE immediately
+      setTimeout(
+        () => dispatch({ type: constantsText.success }),
+        constantsNumbers.startPageDelay
+      );
     } catch (err) {
       console.log(err);
-      dispatch({ type: 'ERROR' });
+      dispatch({ type: constantsText.error });
     }
   };
 

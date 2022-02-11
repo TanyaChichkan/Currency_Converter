@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Snackbar } from '@mui/material';
 import { Alert } from '@mui/material';
+import { constantsText } from '../../constants/constants';
+import { constantsNumbers } from '../../constants/constants';
 
 const Error = ({ error, message }) => {
   const [openErrorMsg, setOpenErrorMsg] = useState(false);
@@ -8,7 +10,7 @@ const Error = ({ error, message }) => {
   useEffect(() => setOpenErrorMsg(true), [error]);
 
   const handleCloseErrorMsg = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === constantsText.clickaway) {
       return;
     }
 
@@ -17,7 +19,7 @@ const Error = ({ error, message }) => {
   return (
     <Snackbar
       open={openErrorMsg}
-      autoHideDuration={2000}
+      autoHideDuration={constantsNumbers.delay}
       onClose={handleCloseErrorMsg}
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       sx={{ width: '50%' }}

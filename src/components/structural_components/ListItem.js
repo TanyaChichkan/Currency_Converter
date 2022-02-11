@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import useWindowSize from '../../custom_hooks/useWindowResize';
+import { constantsNumbers, constantsText } from '../../constants/constants';
 import flagEU from '../../images/eu-flag.png';
 import flagUSD from '../../images/usd-flag.png';
 import flagRU from '../../images/ru-flag.png';
@@ -11,10 +12,11 @@ const ListItemStyled = styled.li`
   gap: 3%;
 
   display: ${(props) =>
-    props.ccy === 'RUR' && props.width < 768 ? 'none' : 'flex'};
+    props.ccy === constantsText.RUR &&
+    props.width < constantsNumbers.screenWidthBig
+      ? 'none'
+      : 'flex'};
 `;
-
-const SpanStyled = styled.span``;
 
 const ListItem = ({ ccy, buy, sale }) => {
   const { width } = useWindowSize();
@@ -31,21 +33,21 @@ const ListItem = ({ ccy, buy, sale }) => {
 
   return (
     <ListItemStyled ccy={ccy} width={width}>
-      {width > 320 && (
+      {width > constantsNumbers.screenWidthXXS && (
         <img
           src={getCurrencyFlag(ccy).flag}
           alt={`sign-of-${ccy}`}
           width='40'
-          height={ccy === 'USD' || ccy === 'RUR' ? '20' : '35'}
+          height={
+            ccy === constantsText.USD || ccy === constantsText.RUR ? '20' : '35'
+          }
         />
       )}
-      <SpanStyled>
-        {getCurrencyFlag(ccy).sign}
-        {width > 768 && ccy}
-      </SpanStyled>
-      <SpanStyled>{buy.toFixed(2)}</SpanStyled>
+      <span>{getCurrencyFlag(ccy).sign}</span>
+      <span>{width > constantsNumbers.screenWidthBig && ccy}</span>
+      <span>{buy.toFixed(2)}</span>
       <span>/</span>
-      <SpanStyled>{sale.toFixed(2)}</SpanStyled>
+      <span>{sale.toFixed(2)}</span>
     </ListItemStyled>
   );
 };

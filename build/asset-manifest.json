@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.c57fb204.css",
-    "main.js": "/static/js/main.7b722afa.js",
-    "static/media/eu-flag.png": "/static/media/eu-flag.4a6dea62933d327c7b00.png",
-    "index.html": "/index.html",
-    "main.c57fb204.css.map": "/static/css/main.c57fb204.css.map",
-    "main.7b722afa.js.map": "/static/js/main.7b722afa.js.map"
+    "main.css": "/Currency_Converter/static/css/main.c57fb204.css",
+    "main.js": "/Currency_Converter/static/js/main.9d0c20e3.js",
+    "static/media/eu-flag.png": "/Currency_Converter/static/media/eu-flag.4a6dea62933d327c7b00.png",
+    "index.html": "/Currency_Converter/index.html",
+    "main.c57fb204.css.map": "/Currency_Converter/static/css/main.c57fb204.css.map",
+    "main.9d0c20e3.js.map": "/Currency_Converter/static/js/main.9d0c20e3.js.map"
   },
   "entrypoints": [
     "static/css/main.c57fb204.css",
-    "static/js/main.7b722afa.js"
+    "static/js/main.9d0c20e3.js"
   ]
 }

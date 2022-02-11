@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { constantsText } from '../constants/constants';
 import { useCurrencyRequest } from './useCurrencyRequest';
 
 export const useCurrencyFilter = () => {
@@ -11,9 +12,9 @@ export const useCurrencyFilter = () => {
         buy: Number(currencyObj.buy),
         sale: Number(currencyObj.sale),
       }))
-      .filter(item => item.ccy !== 'BTC');
+      .filter((item) => item.ccy !== constantsText.BTC);
     setFrequentlyUsedCurrency(filteredByUsdEur);
   }, [currencyRatesAll]);
 
-  return { currencyData: frequentlyUsedCurrency};
+  return { currencyData: frequentlyUsedCurrency };
 };

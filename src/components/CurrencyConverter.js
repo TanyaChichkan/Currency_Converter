@@ -1,6 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
 import { CurrencyContext } from '../context/CurrencyContext';
 
+import { constantsText } from '../constants/constants';
+
 import Input from './structural_components/Input';
 import SelectElement from './structural_components/Select';
 import Wrapper from './structural_components/Wrapper';
@@ -15,8 +17,8 @@ const CurrencyConverterCopy = () => {
   const [amountInFrom, setAmountInFrom] = useState(true);
   const [amount, setAmount] = useState(1);
 
-  const [currencyFrom, setCurrencyFrom] = useState('UAH');
-  const [currencyTo, setCurrencyTo] = useState('USD');
+  const [currencyFrom, setCurrencyFrom] = useState(constantsText.UAH);
+  const [currencyTo, setCurrencyTo] = useState(constantsText.USD);
 
   const [rate, setRate] = useState(
     () => currencyData.length && calcRateFromData(currencyData, currencyTo)
@@ -52,12 +54,12 @@ const CurrencyConverterCopy = () => {
     const { name, value } = e.target;
 
     switch (name) {
-      case 'inputFirst':
+      case constantsText.inputFirst:
         setAmount(value);
         setAmountInFrom(true);
         break;
 
-      case 'inputSecond':
+      case constantsText.inputSecond:
         setAmount(value);
         setAmountInFrom(false);
         break;
@@ -70,23 +72,28 @@ const CurrencyConverterCopy = () => {
   const handleSelectChange = (e) => {
     const { name, value } = e.target;
 
-    name === 'selectFirst' ? setCurrencyFrom(value) : setCurrencyTo(value);
+    name === constantsText.selectFirst
+      ? setCurrencyFrom(value)
+      : setCurrencyTo(value);
   };
 
-  const currencyNames = [...currencyData.map((item) => item.ccy), 'UAH'];
+  const currencyNames = [
+    ...currencyData.map((item) => item.ccy),
+    constantsText.UAH,
+  ];
 
   return (
     <form>
       <Wrapper>
         <Input
-          name='inputFirst'
+          name={constantsText.inputFirst}
           value={amountInFrom ? amount : amountRated}
           handleChange={handleAmountChange}
         />
 
         <SelectElement
-          textForLabel='Choose currency'
-          name='selectFirst'
+          textForLabel={constantsText.labelText}
+          name={constantsText.selectFirst}
           value={currencyFrom}
           handleChange={handleSelectChange}
           optionsData={currencyNames}
@@ -95,14 +102,14 @@ const CurrencyConverterCopy = () => {
 
       <Wrapper>
         <Input
-          name='inputSecond'
+          name={constantsText.inputSecond}
           value={amountInFrom ? amountRated : amount}
           handleChange={handleAmountChange}
         />
 
         <SelectElement
-          textForLabel='Choose currency'
-          name='selectSecond'
+          textForLabel={constantsText.labelText}
+          name={constantsText.selectSecond}
           value={currencyTo}
           handleChange={handleSelectChange}
           optionsData={currencyNames}

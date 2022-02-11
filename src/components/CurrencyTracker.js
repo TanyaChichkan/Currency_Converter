@@ -6,6 +6,7 @@ import { Container } from '@mui/material';
 import CurrencyConverter from './CurrencyConverter';
 import Loader from './info_components/Loader';
 import Error from './info_components/Error';
+import { constantsText } from '../constants/constants';
 
 const CurrencyTracker = () => {
   const {
@@ -15,12 +16,7 @@ const CurrencyTracker = () => {
   return (
     <>
       {isLoading && <Loader open={isLoading ? true : false} />}
-      {error && (
-        <Error
-          errorState={error}
-          message='Something went wrong. Please, try again'
-        />
-      )}
+      {error && <Error errorState={error} message={constantsText.errorMsg} />}
 
       {success && (
         <>
